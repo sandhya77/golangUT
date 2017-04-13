@@ -5,7 +5,7 @@
 // license that can be found in the LICENSE file.
 
 
-package strings
+package mycomp
 
 
 // Compare returns an integer comparing two strings lexicographically.
