@@ -37,6 +37,7 @@ var compareTests = []struct {
 	{"x", "a", 1},
 
 	{"b", "x", -1},
+}
 
 
 
