@@ -1,4 +1,4 @@
-package hacker
+package mycomp
 
 
 import (
