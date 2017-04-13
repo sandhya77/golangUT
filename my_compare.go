@@ -14,7 +14,7 @@ package strings
 
 // string comparison operators ==, <, >, and so on.
 
-func Compare(a, b string) int {
+func Comp(a, b string) int {
 
 	// NOTE(rsc): This function does NOT call the runtime cmpstring function,
 
