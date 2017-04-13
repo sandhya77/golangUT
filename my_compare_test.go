@@ -1,5 +1,5 @@
 
-package strings
+package mycomp
 
 
 import (
