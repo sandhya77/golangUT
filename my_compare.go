@@ -14,7 +14,7 @@ package mycomp
 
 // string comparison operators ==, <, >, and so on.
 
-func Comp(a, b string) int {
+func Compare(a, b string) int {
 
 	// NOTE(rsc): This function does NOT call the runtime cmpstring function,
 
