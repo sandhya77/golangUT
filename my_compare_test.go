@@ -5,7 +5,7 @@
 // license that can be found in the LICENSE file.
 
 
-package mycomp
+package strings
 
 
 // Derived from bytes/compare_test.go.
