@@ -3,7 +3,7 @@ package mycomp
 
 import (
 
-	"strings"
+	
 
 	"testing"
 
