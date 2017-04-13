@@ -1,5 +1,5 @@
 
-package mycomp
+package strings
 
 
 // Compare returns an integer comparing two strings lexicographically.
