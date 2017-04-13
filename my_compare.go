@@ -1,5 +1,5 @@
 
-package hacker
+package mycomp
 
 
 // Compare returns an integer comparing two strings lexicographically.
