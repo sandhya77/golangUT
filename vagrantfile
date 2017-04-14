@@ -4,7 +4,8 @@
 $script = <<SCRIPT
 # Update apt and get dependencies
 sudo apt-get update
-sudo apt-get install -y zip unzip curl wget vim
+sudo apt-get install -y golang-go
+SCRIPT
 # SOFTWARE VERSION
 GO = "1.8"
 #VAGRANT CONFIGURATION
@@ -12,7 +13,7 @@ Vagrant.configure(2) do |config|
   vmName = "golangUT"
   config.vm.box = "bento/ubuntu-16.04"
   #shell script
-  config.vm.provision "shell", inline: $script, privileged: false
+  config.vm.provision "shell", privileged: false, inline: $installScript
 end
 
   
