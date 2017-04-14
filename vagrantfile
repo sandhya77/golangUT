@@ -3,59 +3,16 @@
 
 $script = <<SCRIPT
 # Update apt and get dependencies
-
 sudo apt-get update
 sudo apt-get install -y zip unzip curl wget vim
-
-# SOFTWARE VERSIONS
-GO_VERSION="1.8"
-UBUNTU_VERSION="16.04"
-
-# Get the ARCH
-ARCH=`uname -m | sed 's|i686|386|' | sed 's|x86_64|amd64|'`
-
-# GO INSTALLATION
-cd /tmp
-wget -q https://storage.googleapis.com/golang/go${GO_VERSION}.linux-${ARCH}.tar.gz
-sudo tar -xf go${GO_VERSION}.linux-${ARCH}.tar.gz -C /usr/local
-rm go*.tar.gz
-
-# GOPATH SETUP
-SRCROOT="/usr/local/go"
-SRCPATH="/home/vagrant/go"
-mkdir -p $SRCPATH
-mkdir -p $SRCPATH/bin
-sudo chown -R vagrant:vagrant $SRCPATH
-cat <<EOF >/tmp/gopath.sh
-export GOPATH="$SRCPATH"
-export GOBIN="$SRCPATH/bin"
-export GOROOT="$SRCROOT"
-export PATH="$SRCROOT/bin:$SRCPATH/bin:\$PATH"
-EOF
-sudo mv /tmp/gopath.sh /etc/profile.d/gopath.sh
-sudo chmod 0755 /etc/profile.d/gopath.sh
-source /etc/profile.d/gopath.sh
-SCRIPT
-
-required_plugins = %w(vagrant-cachier)
-
-required_plugins.each do |plugin|
-  need_restart = false
-  unless Vagrant.has_plugin? plugin
-    system "vagrant plugin install #{plugin}"
-    need_restart = true
-  end
+# SOFTWARE VERSION
+GO = "1.8"
 #VAGRANT CONFIGURATION
 Vagrant.configure(2) do |config|
-end
   vmName = "golangUT"
   config.vm.box = "bento/ubuntu-16.04"
-  #virtualbox configurations
-  config.vm.provider "virtualbox" do |v|
-    v.name="sitepoint Test vagrant"
-  v.customize ["modifyvm", :id, "--memory, "1024"]
-  end
   #shell script
   config.vm.provision "shell", inline: $script, privileged: false
+end
 
   
