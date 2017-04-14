@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-$script = <<SCRIPT
+$installScript = <<SCRIPT
 # Update apt and get dependencies
 sudo apt-get update
 sudo apt-get install -y golang-go
