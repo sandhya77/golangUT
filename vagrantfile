@@ -45,8 +45,6 @@ required_plugins.each do |plugin|
     system "vagrant plugin install #{plugin}"
     need_restart = true
   end
-  exec "vagrant #{ARGV.join(' ')}" if need_restart
-end
 #VAGRANT CONFIGURATION
 Vagrant.configure(2) do |config|
 end
@@ -56,15 +54,6 @@ end
   config.vm.provider "virtualbox" do |v|
     v.name="sitepoint Test vagrant"
   v.customize ["modifyvm", :id, "--memory, "1024"]
-  end
-  config.vm.define vmName do |vmCfg|
-      vmCfg.vm.hostname = vmName
-      #Adding Vagrant-cachier
-      if Vagrant.has_plugin?("vagrant-cachier")
-        vmCfg.cache.scope = :machine
-        vmCfg.cache.enable :apt
-        vmCfg.cache.enable :gem
-      end
   end
   #shell script
   config.vm.provision "shell", inline: $script, privileged: false
