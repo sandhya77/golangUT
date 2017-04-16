@@ -2,21 +2,9 @@
 $script = <<SCRIPT
 sudo apt-get install -y golang-go
 SCRIPT
-required_plugins = %w(vagrant-cachier)
-required_plugins.each do |plugin|
-  need_restart = false
-  unless Vagrant.has_plugin? plugin
-    system "vagrant plugin install #{plugin}"
-    need_restart = true
-  end
-  exec "vagrant #{ARGV.join(' ')}" if need_restart
-end
 Vagrant.configure("2") do |config|
   vmName = "golangUT"
   config.vm.box = "bento/ubuntu-16.04"
-   if Vagrant.has_plugin?("vagrant-vbguest") then
-    config.vbguest.auto_update = false
-  end
   config.vm.provider "virtualbox" do |v|
       v.customize ["modifyvm", :id, "--cableconnected1", "on"]
       end
