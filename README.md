@@ -17,7 +17,9 @@ GO INSTALLATION ON VM:
 - $ cd golandUT
 - $ vagrant up
   (The initial setup is, depending on your internet connection, going,to take some time).
+  
 After succesful vagrant up go with: 
+
  -$ vagrant ssh
 - $ git clone https://github.com/sandhya77/golangUT.git
  - $ go env (1.6)
