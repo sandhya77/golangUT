@@ -22,6 +22,8 @@ In addition the laptop has virtualbox(5.0) and vagrant(1.9.3)installed.
  TROUBLE SHOOTING DURING LOCAL SETUP
  
  -'vagrant up' is a time taking process
+ 
  -This downloads all the vendoring libraries from vagrantfile
+ 
  -Typically time is required more for the first attempt only
  
