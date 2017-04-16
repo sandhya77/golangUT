@@ -1,7 +1,4 @@
-OpenEBS is purpose built storage for containerized environments, written in GoLang, built upon block storage containers we call Virtual Storage Machines or VSMs.
-GOLANG
-Go is an open source programming language that makes it easy to build simple, reliable, and efficient software. 
-A service provided to install go with the help of vagrantfile in ubuntu virtual machine.
+
 INSTALLATION AND GETTING STARTED WITH GO:
 There are some steps to be followed in setting up GO envirournment.
 REQUIREMENTS:
