@@ -1,5 +1,4 @@
-VAGRANT – GO INSTALLATION:
-
+VAGRANT – GO INSTALLATION
 GETTING STARTED WITH GO:
 
 There are some steps to be followed in setting up GO envirournment.
