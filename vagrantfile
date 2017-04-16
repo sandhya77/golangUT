@@ -1,19 +1,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-$installScript = <<SCRIPT
-# Update apt and get dependencies
-sudo apt-get update
-sudo apt-get install -y golang-go
-SCRIPT
-# SOFTWARE VERSION
-GO = "1.8"
-#VAGRANT CONFIGURATION
-Vagrant.configure(2) do |config|
-  vmName = "golangUT"
-  config.vm.box = "bento/ubuntu-16.04"
-  #shell script
-  config.vm.provision "shell", privileged: false, inline: $installScript
+Vagrant::Config.run do |config|
+  config.vm.box = "puphpet/debian75-x64"
+  config.vm.provision :puppet do |puppet|
+    puppet.environment      = "development"
+    puppet.environment_path = "environments"
+  end
 end
 
   
