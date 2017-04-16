@@ -18,6 +18,6 @@ Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-16.04"
   config.vm.provider "virtualbox" do |v|
       v.customize ["modifyvm", :id, "--cableconnected1", "on"]
-  config.vm.provision "shell", privileged: true, inline: $installScript
+  config.vm.provision "shell", privileged: true, inline: $Script
  echo "provisioning virtual machine...."
  end
