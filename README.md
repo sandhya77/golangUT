@@ -27,3 +27,5 @@ In addition the laptop has virtualbox(5.0) and vagrant(1.9.3)installed.
  
  -Typically time is required more for the first attempt only
  
+ - exit
+ 
