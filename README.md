@@ -22,7 +22,7 @@ After succesful vagrant up go with:
 
  -$ vagrant ssh
 - $ git clone https://github.com/sandhya77/golangUT.git
- - $ go env (1.6)
+ -$ go env (1.6)
  -$ go test -coverprofile = ./ (gotest and code coverage)
  
 TROUBLE SHOOTING DURING LOCAL SETUP:
