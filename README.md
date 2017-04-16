@@ -26,3 +26,5 @@ In addition the laptop has virtualbox(5.0) and vagrant(1.9.3)installed.
  -This downloads all the vendoring libraries from vagrantfile
  
  -Typically time is required more for the first attempt only
+ 
+ - It may show network issues as errors and sometimes errors due to "Intell Virtualization Configuration" to be enabled in ur       laptop.
