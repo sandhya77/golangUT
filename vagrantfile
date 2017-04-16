@@ -1,29 +1,30 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
-VAGRANTFILE_API_VERSION = "2"
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "bento/ubuntu-16.04"
-  config.vm.network "forwarded_port", guest: 5000, host: 5000
-  config.vm.network "private_network", ip: "192.168.33.100"
-
-  # Share the home directory for access to host source code
-  # and use NFS for 10-100x speedup:
-  config.vm.synced_folder "~/", "/host", nfs: true
-
-  # Install Go via Chef:
-  config.vm.provision "chef_solo" do |chef|
-    chef.add_recipe "golang"
+$script = <<SCRIPT
+# Update apt and get dependencies
+sudo apt-get update
+sudo apt-get install -y golang-go
+# Setup go
+GO_VERSION="1.8"
+SCRIPT
+required_plugins = %w(vagrant-cachier)
+required_plugins.each do |plugin|
+  need_restart = false
+  unless Vagrant.has_plugin? plugin
+    system "vagrant plugin install #{plugin}"
+    need_restart = true
   end
-
-  # Now run manual shell script for additional provisioning:
-  config.vm.provision "shell", path: "./provision.sh"
-
-  # Copy the user's .gitconfig (if it exists) so they don't
-  # have to reconfigure Git in the VM:
-  config.vm.provision "file", source: "~/.gitconfig", destination: "/home/vagrant/.gitconfig"
-
+  exec "vagrant #{ARGV.join(' ')}" if need_restart
+end
+Vagrant.configure(2) do |config|
+  vmName = "golangUT"
+  config.vm.box = "bento/ubuntu-16.04"
+  if Vagrant.has_plugin?("vagrant-vbguest") then
+    config.vbguest.auto_update = false
+  end
+  config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
+  end
+  config.vm.provision "shell", inline: $script, privileged: false
 end
