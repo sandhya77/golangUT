@@ -20,7 +20,8 @@ In addition the laptop requires virtualbox(5.0) and vagrant(1.9.3) to be install
 - vagrant up
   (The initial setup is, depending on your internet connection, going to take some time. It's normal for VirtualBox to show up, please don't login and wait for the installation to finish).
  - vagrant ssh
- - Inside the vagrant VM repeat the above steps again
+ - Inside the vagrant VM ,
+ - git clone https://github.com/sandhya77/golangUT.git
  - check with go env
  - go test
  
