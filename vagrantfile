@@ -1,6 +1,6 @@
 
 $script = <<SCRIPT
-sudo apt-get install -y golang-go
+gvm install go2
 SCRIPT
 Vagrant.configure("2") do |config|
   vmName = "golangUT"
