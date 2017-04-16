@@ -8,7 +8,7 @@ These are some of the steps to start with the development and running of go in o
 
 It requires LINUX OS (ubuntu16.04).
 
-In addition the laptop has virtualbox(5.0) and vagrant(1.9.3)installed.
+In addition the laptop has virtualbox(5.0) and vagrant(1.9.3) to be installed.
 
  - git clone https://github.com/sandhya77/golangUT.git 
  - cd to above cloned folder i.e golangUT
