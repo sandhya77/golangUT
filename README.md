@@ -9,7 +9,7 @@ REQUIREMENTS:
 - Linux os on desktop(latest version ubuntu16.04 LTS).
 - Virtualbox(>=5.0)
 - Vagrant(>=1.9.3)
-- git
+- git to be installed
 
 GO INSTALLATION ON VM:
 
