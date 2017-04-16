@@ -1,5 +1,3 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
 
 $script = <<SCRIPT
 # Update apt and get dependencies
@@ -15,16 +13,12 @@ required_plugins.each do |plugin|
     system "vagrant plugin install #{plugin}"
     need_restart = true
   end
-  exec "vagrant #{ARGV.join(' ')}" if need_restart
-end
-Vagrant.configure(2) do |config|
+Vagrant.configure("2") do |config|
   vmName = "golangUT"
   config.vm.box = "bento/ubuntu-16.04"
-  if Vagrant.has_plugin?("vagrant-vbguest") then
-    config.vbguest.auto_update = false
-  end
-  config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
+  config.vm.provider "virtualbox" do |v|
+      v.customize ["modifyvm", :id, "--cableconnected1", "on"]
   end
   config.vm.provision "shell", inline: $script, privileged: false
+  echo "provisioning virtual machine...."
 end
