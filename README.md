@@ -14,6 +14,7 @@ In addition the laptop has virtualbox(5.0) and vagrant(1.9.3)installed.
  - vagrant ssh
  - Inside the vagrant VM repeat the above steps again
  - check with goenv
+ - go test
  
  TROUBLE SHOOTING DURING LOCAL SETUP
  -'vagrant up' is a time taking process
