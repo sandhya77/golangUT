@@ -1,12 +1,7 @@
 
 $script = <<SCRIPT
 sudo apt-get update
-sudo apt-get install -y zip unzip curl wget vim
-# Install Go
-cd /tmp
-wget -q https://storage.googleapis.com/golang/go${GO_VERSION}.linux-${ARCH}.tar.gz
-sudo tar -xf go${GO_VERSION}.linux-${ARCH}.tar.gz -C /usr/local
-rm go*.tar.gz
+sudo apt-get install -y golang-go
 SCRIPT
 Vagrant.configure("2") do |config|
   vmName = "golangUT"
