@@ -2,7 +2,7 @@
 $script = <<SCRIPT
 GO_URL="https://storage.googleapis.com/golang"
 GO_VERSION=${1:-"1.8"}
-GO_FILE="go$GO_VERSION.linux-amd64.tar.gz
+GO_FILE="go$GO_VERSION.linux-amd64.tar.gz"
 SCRIPT
 Vagrant.configure("2") do |config|
   vmName = "golangUT"
