@@ -1,11 +1,8 @@
 
 $script = <<SCRIPT
+sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable
 sudo apt-get update
-sudo apt-get install curl git mercuial make  binutils bison gcc
-bash < <(curl -s https://raw.github.com/moovweb/gvm/master/binscripts/gvm-installer)
-gvm install go2
-gvm use go1.1.2 [--default]
-gvm list
+sudo apt-get install golang
 SCRIPT
 Vagrant.configure("2") do |config|
   vmName = "golangUT"
