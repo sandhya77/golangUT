@@ -54,5 +54,5 @@ $(IREF_LIST): %_iref:
 $(TEST_LIST): %_test:
 	$(GOTEST) $(TOPLEVEL_PKG)/$*
 $(FMT_TEST): %_fmt:
-$(GOFMT) ./$*
+$(GOFMT)	./$*
 end
