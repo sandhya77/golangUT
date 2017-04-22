@@ -1,5 +1,9 @@
 # Makefile for a go project
-#
+VERSION ?= $(shell cat VERSION)
+
+.PHONY: help version clean bump release
+
+.DEFAULT_GOAL := help
 # Author: Jon Eisen
 # 	site: joneisen.me
 # 	
