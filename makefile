@@ -1,14 +1,20 @@
-TARGETS := alpha beta 
-.nondefault:
-	@echo "Execute non-default target"
-$(TARGETS):
-	@echo $@
-alpha: .nondefault
-.DEFAULT_GOAL := beta
-#Targets are just actions to be performed and are not associated with files
-#Improves performance of make, since there is no need to check if the target requires a rebuild
-.PHONY: $(TARGETS)
 # Makefile for a go project
+#
+# Author: Jon Eisen
+# 	site: joneisen.me
+# 	
+# Targets:
+# 	all: Builds the code
+# 	build: Builds the code
+# 	fmt: Formats the source files
+# 	clean: cleans the code
+# 	install: Installs the code to the GOPATH
+# 	iref: Installs referenced projects
+#	test: Runs the tests
+#	
+#  Blog post on it: http://joneisen.me/post/25503842796
+#
+
 # Go parameters
 GOCMD=go
 GOBUILD=$(GOCMD) build
@@ -17,11 +23,13 @@ GOINSTALL=$(GOCMD) install
 GOTEST=$(GOCMD) test
 GODEP=$(GOTEST) -i
 GOFMT=gofmt -w
+
 # Package lists
 TOPLEVEL_PKG := whatever
 INT_LIST := myinterface another/impl	#<-- Interface directories
 IMPL_LIST := myimplementation another/pkg/impl	#<-- Implementation directories
 CMD_LIST := mycmd1 another/pkg/mycmd1	#<-- Command directories
+
 # List building
 ALL_LIST = $(INT_LIST) $(IMPL_LIST) $(CMD_LIST)
 
